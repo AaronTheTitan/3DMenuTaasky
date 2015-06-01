@@ -23,14 +23,7 @@ class MenuViewController: UITableViewController {
   
   // MARK: - Segues
   
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showDetail" {
-      if let indexPath = self.tableView.indexPathForSelectedRow() {
-        let object = menuItems[indexPath.row] as! NSDictionary
-        (segue.destinationViewController as! DetailViewController).menuItem = object
-      }
-    }
-  }
+
   
   // MARK: - Table View
   

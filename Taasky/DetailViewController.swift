@@ -20,5 +20,11 @@ class DetailViewController: UIViewController {
       }
     }
   }
-  
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    // Remove the drop shadow from the navigation bar
+    navigationController!.navigationBar.clipsToBounds = true
+  }
+
 }
