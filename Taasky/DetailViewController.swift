@@ -11,6 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
   
   @IBOutlet weak var backgroundImageView: UIImageView!
+  var hamburgerView: HamburgerView?
   
   var menuItem: NSDictionary? {
     didSet {
@@ -25,6 +26,19 @@ class DetailViewController: UIViewController {
     super.viewDidLoad()
     // Remove the drop shadow from the navigation bar
     navigationController!.navigationBar.clipsToBounds = true
+
+    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "hamburgerViewTapped")
+    hamburgerView = HamburgerView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+    hamburgerView!.addGestureRecognizer(tapGestureRecognizer)
+    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: hamburgerView!)
+  }
+
+  func hamburgerViewTapped() {
+    let navigationController = parentViewController as! UINavigationController
+    let containerViewController = navigationController.parentViewController as! ContainerViewController
+
+    containerViewController.hideOrShowMenu(!containerViewController.showingMenu, animated: true)
+    
   }
 
 }
