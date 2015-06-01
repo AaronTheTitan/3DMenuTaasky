@@ -19,6 +19,7 @@ class MenuViewController: UITableViewController {
     super.viewDidLoad()
     // Remove the drop shadow from the navigation bar
     navigationController!.navigationBar.clipsToBounds = true
+    (navigationController!.parentViewController as! ContainerViewController).menuItem = (menuItems[0] as! NSDictionary)
   }
   
   // MARK: - Segues
@@ -45,6 +46,12 @@ class MenuViewController: UITableViewController {
     let menuItem = menuItems[indexPath.row] as! NSDictionary
     cell.configureForMenuItem(menuItem)
     return cell
+  }
+
+  override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    let menuItem = menuItems[indexPath.row] as! NSDictionary
+    (navigationController!.parentViewController as! ContainerViewController).menuItem = menuItem
   }
   
 }

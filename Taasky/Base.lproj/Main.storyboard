@@ -147,6 +147,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="menuContainerView" destination="xLa-v4-FlO" id="xD1-wF-cx9"/>
+                        <outlet property="scrollView" destination="fpw-yk-swj" id="jDF-TR-T8L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gCW-cP-lib" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
